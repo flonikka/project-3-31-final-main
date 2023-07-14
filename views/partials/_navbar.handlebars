@@ -1,0 +1,151 @@
+<nav class="navbar navbar-expand-sm navbar-dark sticky-top py-1" style="background-color: #374764">
+  <div class="container">
+    <div class="logo">
+      <a href="/">
+        <img src="/img/logo2.png" alt="logo" width="50" height="50"/>
+      </a>  
+    </div>
+  <button 
+    class="navbar-toggler" 
+    type="button"
+    data-toggle="collapse" 
+    data-target="#navbarNavDropdown" 
+    aria-controls="navbarNavDropdown" 
+    aria-expanded="false" 
+    aria-label="Toggle navigation"
+  />
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link text-" href="/">Home<span class="sr-only">(current)</span></a>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a 
+        class="nav-link dropdown-toggle" 
+        href="#" 
+        role="button" 
+        data-toggle="dropdown" 
+        aria-expanded="false"
+        >Membership</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="/facilities">Facilities</a>
+            <a class="dropdown-item" href="/bookings">Booking Confirmed</a>
+            <a class="dropdown-item" href="/users/login">Member Log In </a>
+          </div>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a 
+        class="nav-link dropdown-toggle" 
+        href="#" 
+        role="button" 
+        data-toggle="dropdown" 
+        aria-expanded="false"
+        >Sports</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="/golf">Golf</a>
+            <a class="dropdown-item" href="/rugby">Rugby</a>
+            <a class="dropdown-item" href="/squash">Squash</a>
+            <a class="dropdown-item" href="/tabletennis">Table Tennis</a>
+            <a class="dropdown-item" href="/tennis">Tennis</a>
+          </div>
+      </li>
+      </li>
+      
+    </ul>
+
+    <ul class="navbar-nav ml-auto">
+
+
+      {{!-- admin parts--}}
+      {{#if admin}}
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+          Admin
+        </a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="/bookings/admin">Reservation</a>
+          <a class="dropdown-item" href="/admin/records">Booking Database</a>
+          <a class="dropdown-item" href="/admin/inquiries">Inquiries Database</a>
+        </div>
+      </li>
+      {{/if}}
+      {{!-- admin parts--}}
+      
+      {{#if user}}
+      <div class="logo py-2">
+        <a href="/">
+        <img src="/img/login.png" alt="reg" width="20" height="20"/>
+        </a>  
+      </div>
+      <li class="nav-item">
+        <a class="nav-link" href="/users/profile">Profile</a>
+      </li>
+      
+      <div class="logo py-2">
+        <a href="/">
+        <img src="/img/booking.png" alt="reg" width="20" height="20"/>
+        </a>  
+      </div>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+          Bookings
+        </a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="/bookings/add">Add Bookings</a>
+          <a class="dropdown-item" href="/bookings">View Bookings</a>     
+        </div>
+      </li>
+
+      <div class="logo py-2">
+        <a href="/">
+        <img src="/img/logout.png" alt="reg" width="20" height="20"/>
+        </a>  
+      </div>
+
+      <li class="nav item">
+        <a class="nav-link" href="/users/logout">Logout</a>
+      </li>
+
+      {{else}}
+     
+      <div class="logo py-2">
+        <a href="/">
+        <img src="/img/login.png" alt="reg" width="20" height="20"/>
+        </a>  
+      </div>
+
+      <li class="nav-item">
+        <a class="nav-link" href="/users/login">Login</a>
+      </li>
+
+      <div class="logo py-2">
+        <a href="/">
+        <img src="/img/login.png" alt="reg" width="20" height="20"/>
+        </a>  
+      </div>
+
+      <li class="nav-item">
+        <a class="nav-link" href="/users/register">Register</a>
+      </li>
+      {{/if}}
+
+      <div class="logo py-2">
+        <a href="/">
+        <img src="/img/contact-mail.png" alt="mail" width="20" height="20"/>
+        </a>  
+      </div>
+
+      <li class="nav-item">
+        <a class="nav-link" href="/contacts/contact">Contact us</a>
+      </li>
+
+    </ul>
+  </div>
+</div>
+</nav>

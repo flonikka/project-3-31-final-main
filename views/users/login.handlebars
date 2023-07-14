@@ -1,0 +1,45 @@
+<div class="container py-5 my-5" style="background-color: #374764; border: 4px solid #796241; border-radius : 25px;"> 
+<div class="row" >
+    <div class="col-md-6 mx-auto" >
+        <div class="card card-body" style="background-color: #374764; border: 0px solid;">
+            <div class="text-center text-light mb-4">
+                <img class="mb-4" src="/img/logo.png" alt="" width="75" height="75" style="border: 2px solid #796241;">
+                <h2 class="text-center text-light">Account login</h2>
+            </div>
+                <h5 class="text-center text-light">Welcome Back !</h5>
+            <form action="/users/login" method="post">
+                <div class="form-group text-light">
+                    <label for="emailInput">Email</label>
+                    <input 
+                    type="email" 
+                    name="email" 
+                    class="form-control"
+                    />
+                </div>
+                <div class="form-group text-light">
+                    <label for="password">Password</label>
+                    <input 
+                    type="password" 
+                    name="password" 
+                    class="form-control"
+                    />
+                </div>
+
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-mb-0">
+                            <button type="" class="btn btn-lg btn-dark" style="background-color: #8b817a;">Log In</button>
+                        </div>
+                {{!-- function to be add --}}
+                        {{!-- <div class="col-md-9">
+                             <a href="/users/register" button type="submit" class="btn btn-light">Sign Up</a>
+                        </div>   --}}
+                {{!--  --}}
+                
+                    </div>
+                </div> 
+            </form>
+        </div>
+    </div>
+</div>
+</div>

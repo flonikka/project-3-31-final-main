@@ -1,0 +1,149 @@
+<style>
+.btn-text-left{
+	text-align: left;	
+}
+.btn-text-right{
+	text-align: right;
+}
+</style>
+
+
+<div class="container py-3 my-3" >  
+    <div class="row row-cols-1 row-cols-md-2" >
+      <div class="col mb-4">
+
+        <div class="card" style="background-color: rgb(249, 240, 229); border: 2px solid #796241; border-radius : 7px;">
+          <img src="{{img_path}}" alt="" class="card-img-top img-fluid">
+          <div class="card-body">
+            
+            <h2 class="card-title text-center" style="color: #8b817a;">{{booking.facility_nm}}</h2>
+              {{!-- <p class="card-text">Tennis has always been one of the most popular sporting activities at the 
+              <br></p>
+              <br>
+              <h5 class="card-subtitle text-muted">Booking</h5>
+              <br>Tennis courts may be booked for 60 minutes per session.  Advance booking permitted for up to five days in advance. --}}
+          </div>
+        </div>
+
+      </div>
+
+        <div class="col mb-4">
+          <div class="card" style="border: 2px solid #796241; border-radius : 7px;">
+            <div class="card-body">
+                <h3 class="display-4 text-center my-4" style="color: #8b817a;">Edit your bookings</h3>
+                
+                    <form action="/bookings/edit/{{booking._id}}?_method=PUT" method="POST">
+                    <input type="hidden" name="_method" value="PUT"/>
+                    <div class="form-group">
+                        <label for="facility" class="badge badge-secondary text-wrap;" style="width: 12rem;">Booked Sports : {{booking.facility_nm}}</label>
+                            <select
+                                type="text" 
+                                class="form-control" 
+                                name="facility" 
+                                value="{{booking.facility}}"
+                            />
+                                <option selected>Select Sport</option>
+                                <option value="GF01">Golf</option>
+                                <option value="RB01">Rugby</option>
+                                <option value="SQ01">Squash Court 1</option>
+                                <option value="SQ02">Squash Court 2</option>
+                                <option value="SQ03">Squash Court 3</option>
+                                <option value="SQ04">Squash Court 4</option>
+                                <option value="TS01">Tennis Court 1</option>
+                                <option value="TS02">Tennis Court 2</option>
+                                <option value="TS03">Tennis Court 3</option>
+                                <option value="TS04">Tennis Court 4</option>
+                                <option value="TS05">Tennis Court 5</option>
+                                <option value="TS06">Tennis Court 6</option>
+                                <option value="TS07">Tennis Court 7</option>
+                                <option value="TS01">Table Tennis Court 1</option>
+                                <option value="TS02">Table Tennis Court 2</option>
+                                <option value="TS03">Table Tennis Court 3</option>
+                                <option value="TS04">Table Tennis Court 4</option>
+                            </select> 
+                    </div>
+
+                    <div class="form-group">
+                        <label for="session" class="badge badge-secondary text-wrap;" style="width: 12rem;">Bookded Time : {{{booking.session_desc}}}</label>
+                            <select 
+                                id="" 
+                                class="form-control"
+                                name = "session"
+                                value="{{booking.session}}"
+                            />
+                            <option name="session" id="session" selected>Select Time</option>
+                            <option value="1">10:00-11:00</option>
+                            <option value="2">11:00-12:00</option>
+                            <option value="3">12:00-13:00</option>
+                            <option value="4">13:00-14:00</option>
+                            <option value="5">14:00-15:00</option>
+                            <option value="6">15:00-16:00</option>
+                            <option value="7">16:00-17:00</option>
+                            <option value="8">17:00-18:00</option>
+                            <option value="9">18:00-19:00</option>
+                            </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="bookingDate" class="badge badge-secondary text-wrap;" style="width: 12rem;">Booked Date : <br>{{booking.bookingDate}}</label>
+                        <input 
+                            class="form-control" 
+                            id = "bookingDate"  
+                            type = "date"
+                            name="bookingDate"
+                            placeholder = "Choose a Date" 
+                            class = "textbox-n"
+                            onfocus = "(this.type = 'date')"  
+                            value="{{booking.bookingDate}}"style="width: 100%">
+                    </div>
+                    <div class="container py-0 my-0">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="btn-text-right">
+                                    <button class="btn btn-light" type="submit">submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </form>      
+            </div>  
+          </div>
+        </div>
+
+      </div>
+    </div>
+</div>
+
+{{!-- <p><h3>Orignial</h3></p>
+<div class="card-card-body">
+    <h3>Edit Booking</h3>
+    <form action="/bookings/edit/{{booking._id}}?_method=PUT" method="POST">
+    <input type="hidden" name="_method" value="PUT"/>
+    <div class="form-group">
+        <label for="facility">Facility</label>
+        <input type="text" 
+                class="form-control" 
+                name="facility" 
+                value="{{booking.facility}}"
+        />
+    </div>
+    <div class="form-group">
+        <label for="bookingDate">Booking Date</label>
+        <input type="text" 
+                class="form-control" 
+                name="bookingDate" 
+                value="{{booking.bookingDate}}"
+        />
+    </div>
+    <div class="form-group">
+        <label for="session">Session</label>
+        <input type="text" 
+                class="form-control" 
+                name="session" 
+                value="{{booking.session}}"
+        />
+    </div>
+
+    <button class="btn btn-primary" type="submit">submit</button>
+    </form>
+</div> --}}

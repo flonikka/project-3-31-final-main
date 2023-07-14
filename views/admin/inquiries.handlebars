@@ -1,0 +1,30 @@
+{{#if inquiries}}
+<div>
+    <table class="table table-striped table-hover">
+        <caption>List of all bookings</caption>
+        <thread>
+            <tr>
+                <th>Subject</th>
+                <th>Message</th>
+                <th>Date</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+            </tr>
+        </thread>
+        <tbody>
+            {{#each inquiries}}
+            <tr>
+                <td>{{subject}}</td>
+                <td>{{message}}</td>
+                <td>{{date}}</td>
+                <td>{{name}}</td>
+                <td>{{email}}</td>
+                <td>{{phone}}</td>
+            </tr>
+            {{/each}}
+        </tbody>        
+    </table>
+{{else}}
+    <h2>No Inquiry Records Listed</h2>
+{{/if}}

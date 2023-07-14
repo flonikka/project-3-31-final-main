@@ -1,0 +1,30 @@
+{{#if records}}
+<div>
+    <table class="table table-striped table-hover">
+        <caption>List of all bookings</caption>
+        <thread>
+            <tr>
+                <th>Facility</th>
+                <th>Booking Date</th>
+                <th>Session</th>
+                <th>Client</th>
+                <th>Name</th>
+                <th>Remarks</th>
+            </tr>
+        </thread>
+        <tbody>
+            {{#each records}}
+            <tr>
+                <td>{{facility}}</td>
+                <td>{{bookingDate}}</td>
+                <td>{{session}}</td>
+                <td>{{userEmail}}</td>
+                <td>{{bookingsInClass.name}}</td>
+                <td>{{remarks}}</td>
+            </tr>
+            {{/each}}
+        </tbody>        
+    </table>
+{{else}}
+    <h2>No Notes Records Listed</h2>
+{{/if}}

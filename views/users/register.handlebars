@@ -1,0 +1,100 @@
+<div class="container py-2 my-2">  
+    <div class="row row-cols-1 row-cols-md-2" style= "background-color: #374764; border: 4px solid #796241; border-radius : 25px;" >
+        <div class="col py-5 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <div class="text-center mb-4">
+                        <img class="mb-4" src="/img/logo.png" alt="" width="75" height="75" style="border: 2px solid #796241;">
+                        <h3 class="text-center">JOIN US !</h3>
+                    </div>
+                    
+                    <form action="/users/register" method="post">
+                        <div class="form-group">
+                            <label for="name">Name</label> 
+                                <input 
+                                type="text" 
+                                name="name" 
+                                class="form-control" 
+                                value="{{name}}"
+                                />
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label> 
+                            <input 
+                            type="email" 
+                            name="email" 
+                            class="form-control" 
+                            value="{{email}}"
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input 
+                            type="password" 
+                            name="password" 
+                            class="form-control"
+                            value="{{password}}"
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label for="password2">Confirm Password</label>
+                            <input 
+                            type="password" 
+                            name="password2" 
+                            class="form-control"
+                            value="{{password2}}"
+                            />
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="row">
+                                
+                                <div class="col-mb-0">
+                                    <button type="submit" class="btn btn-dark" style="background-color: #8b817a;" >Sign Up</button>
+                                </div>
+                    
+                                {{!-- <div class="col-md-9">
+                                    <a href="/users/login" type="" class="btn btn-light">Log In ? </a>
+                                </div> --}}
+                        
+                            </div>
+                        </div>
+                    </form>
+            </div>
+        </div>
+    </div>
+<div>
+
+                        <div class="col py-5 mb-0">
+                            <div class="card" style="background-color: #8b817a; border: 4px solid #796241; border-radius : 25px;" >
+                                <img src="" alt="" class="card-img-top img-fluid">
+                            <div class="card-body">
+                                <h2 class="card-title text-light text-center">Become a member</h2>
+                                <p class="card-text text-light">The Club’s commitment to our Members extends well beyond the boundaries of  sports, recreation, dining and fitness. 
+                                <br><p class="card-text text-light">The Club endeavours to provide a comfortable and enjoyable Club lifestyle for both Members and their families.</p>
+                                </p>
+                                <br>
+                                <h5 class="card-subtitle text-light text-center"> &laquo;Sign Up Now !</h5>
+                                
+                            </div>
+                            </div>     
+                        </div>
+
+                        <div class="col my-0 mb-4">
+                            <div class="card" style="background-color: #374763; border: 4px solid #796241; border-radius : 25px;" >
+                                <img src="" alt="" class="card-img-top img-fluid">
+                            <div class="card-body">
+                                <h2 class="card-title text-light text-center">Already a member ? </h2>
+                                <p class="card-text text-dark text-muted">Login NOW to enjoy the facilities for both Members and their families.
+                                <br></p>
+                                <br>
+                                <h5 class="card-subtitle text-muted">Welcome back !</h5>
+                                <br>
+                                    <div class="col-md-0">
+                                        <a href="/users/login" type="" class="btn btn-dark" style="background-color: #8b817a;">Login </a>
+                                    </div>
+                                {{!-- <p class="card-text"><small class="text-muted">Text...</small></p> --}}
+                            </div>
+                            </div>
+                                 
+                        </div>

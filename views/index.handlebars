@@ -1,0 +1,421 @@
+<style>
+    /* Centered text */
+    .centered {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+    .insideone{
+    position: absolute;
+    top: -800%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+    .insidetwo {
+    position: absolute;
+    top: -700%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+</style>
+
+{{!-- -- Carousel show -- --}}
+
+<div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+    
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+    <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+    <li data-target="#carouselExampleCaptions" data-slide-to="3"></li>
+    
+  </ol>
+  <div class="carousel-inner">
+    
+	<div class="carousel-item active">
+      <img src="/img/carousel_golf.png" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+       <h5 class="insideone">Asia-Pacific Top 100 Golf Course</h5>
+       <p class="insidetwo">Our signature hole is recognized as one of the 500 Best Hole.</p>
+      </div>
+    </div>
+
+    <div class="carousel-item">
+      <img src="/img/carousel_ruby.png" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5 class="insideone">Best Club of Asia-Pacific 2022</h5>
+        <p class="insidetwo">Fun-loving family sporting & wellness events.</p>
+      </div>
+    </div>
+    
+
+     <div class="carousel-item">
+      <img src="/img/carousel_tennis.png" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5 class="insideone">Platinum & Private Club</h5>
+        <p class="insidetwo">An array facilities from custom-made social gatherings.</p>
+      </div>
+    </div>
+    
+
+    <div class="carousel-item">
+      <img src="/img/carousel_tableT.png" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5 class="insideone">A great community for people</h5>
+        <p class="insidetwo">offer a substantial lawn area for members and guest activities.</p>
+      </div>
+	</div>
+        <div class="centered mx-auto" style="width: 1200px;">
+           <div class="container py-1 my-1">
+        <div class="row text-center pb-0">
+        </div> 
+        
+    {{!-- index search bar --}}
+        <div class="col-md-12">
+                <div class="card acik-renk-form" style="border: 0px solid; height: 180px; border-radius : 25px;">
+                    <div class="card-body" style="background-color: #374764; border: 4px solid #796241; border-radius : 25px;" >
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group ">      
+                                    <input 
+                                          class="form-control" 
+                                          id = "bookingDate"  
+                                          type = "date"
+                                          name="bookingDate"
+                                          placeholder = "Choose a Date" 
+                                          class = "textbox-n"
+                                          onfocus = "(this.type = 'date')"  
+                                          value="{{bookingDate}}"style="width: 100%" 
+                                    />
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group ">
+                                    <select 
+                                      id="session" 
+                                      class="form-control"
+                                      name = "session"
+                                      value="{{booking.session}}">
+                                        <option selected>Time</option>
+                                        <option value="">10:00-11:00</option>
+                                        <option value="">11:00-12:00</option>
+                                        <option value="">12:00-13:00</option>
+                                        <option value="">13:00-14:00</option>
+                                        <option value="">14:00-15:00</option>
+                                        <option value="">15:00-16:00</option>
+                                        <option value="">16:00-17:00</option>
+                                        <option value="">17:00-18:00</option>
+                                        <option value="">18:00-19:00</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group ">
+                                    <select 
+                                      id="facility" 
+                                      class="form-control"
+                                      name="facility"
+                                      value="{{facility}}">
+                                    <option selected>View Sports</option>
+                                    <option value="Squash C1">Squash Court 1</option>
+                                    <option value="Squash C2">Squash Court 2</option>
+                                    <option value="Squash C3">Squash Court 3</option>
+                                    <option value="Squash C4">Squash Court 4</option>
+                                    <option value="Tennis C1">Tennis Court 1</option>
+                                    <option value="Tennis C2">Tennis Court 2</option>
+                                    <option value="Tennis C3">Tennis Court 3</option>
+                                    <option value="Tennis C4">Tennis Court 4</option>
+                                    <option value="Tennis C5">Tennis Court 5</option>
+                                    <option value="Tennis C6">Tennis Court 6</option>
+                                    <option value="Tennis C7">Tennis Court 7</option>
+                                    <option value="Table Tennis C1">Table Tennis Court 1</option>
+                                    <option value="Table Tennis C2">Table Tennis Court 2</option>
+                                    <option value="Table Tennis C3">Table Tennis Court 3</option>
+                                    <option value="Table Tennis C4">Table Tennis Court 4</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="font-weight-light text-light">Venue</p>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="form-group ">
+                                    <input type="text" class="form-control" value="" placeholder="The Country Club">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                {{#if user}}
+                                <a href="/bookings/add" type="submit" class="btn btn-dark pl-5 pr-5" style="background-color: #8b817a";>Book Now</a>
+                                {{else}}
+                                <a href="/users/register" type="submit" class="btn btn-dark  pl-5 pr-5" style="background-color: #8b817a";>Book Now</a>
+                                {{/if}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{!-- index search bar --}}
+
+    </div>
+</div>
+    
+
+  <button class="carousel-control-prev" type="button" data-target="#carouselExampleCaptions" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-target="#carouselExampleCaptions" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </button>
+
+</div>
+{{!-- index search bar --}}
+    {{!-- <div class="container py-1 my-1">
+        <div class="row text-center pb-0">
+        </div>
+         <div class="col-md-12">
+                <div class="card acik-renk-form" style="border: 0px solid; border-radius : 25px;">
+                    <div class="card-body" style="background-color: #374764; border: 4px solid #796241; border-radius : 25px;" >
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group ">      
+                                    <input 
+                                          class="form-control" 
+                                          id = "bookingDate"  
+                                          type = "date"
+                                          name="bookingDate"
+                                          placeholder = "Choose a Date" 
+                                          class = "textbox-n"
+                                          onfocus = "(this.type = 'date')"  
+                                          value="{{bookingDate}}"style="width: 100%" 
+                                    />
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group ">
+                                    <select 
+                                      id="session" 
+                                      class="form-control"
+                                      name = "session"
+                                      value="{{session}}">
+                                        <option selected>Time</option>
+                                        <option>11:00-12:00</option>
+                                        <option>12:00-13:00</option>
+                                        <option>13:00-14:00</option>
+                                        <option>14:00-15:00</option>
+                                        <option>15:00-16:00</option>
+                                        <option>17:00-18:00</option>
+                                        <option>18:00-19:00</option>
+                                        <option>19:00-20:00</option>
+                                        <option>20:00-21:00</option>
+                                        <option>21:00-22:00</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group ">
+                                    <select 
+                                        id="facility" 
+                                        class="form-control"
+                                        name="facility"
+                                        value="{{facility}}">
+                                        <option selected>View Sports</option>
+                                        <option>Golf</option>
+                                        <option>Ruby</option>
+                                        <option>Squash</option>
+                                        <option>Table Tennis</option>
+                                        <option>Tennis</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="font-weight-light text-light">Venue</p>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="form-group ">
+                                    <input type="text" class="form-control" value="" placeholder="Krystal Country Club">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                {{#if user}}
+                                <a href="/bookings/add" type="submit" class="btn btn-dark pl-5 pr-5" style="background-color: #8b817a";>Book Now</a>
+                                {{else}}
+                                <a href="/users/register" type="submit" class="btn btn-dark  pl-5 pr-5" style="background-color: #8b817a";>Book Now</a>
+                                {{/if}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> --}}
+{{!-- index search bar --}}
+
+{{!-- Card body start --}}
+<div class="container py-3 my-3">
+    <div class="row text-center pb-0"></div>
+         <div class="col-md-12">
+            
+            <div class="card-columns" >
+                <div class="card" style="border: 2px solid #796241;">
+                    <img src="/img/cardBody_tennis.png" alt="" class="card-img-top img-fluid">
+                    <div class="card-body">
+                        <h4 class="card-title">Tennis Court</h4>
+                        
+                        <p class="card-text">Seven Tennis Courts are available at the Club, including four on the rooftop, which are installed with artificial grass that allows less down-time due to wet weather whereby players can continue to play in light rain. 
+                        <br>
+                        The Club also provide a softer surface to reduce the risk of injury and stress to ankles, knees hips and lower back. 
+                        Our three courts on the North Shore offer a faster, harder surface so players may play on a surface to suit their preference. 
+                            <br>
+                        </p>
+                            <br>
+                        <h5 class="card-subtitle text-muted">Booking</h5><br>
+                        Tennis courts can be booked for 60 minutes per session.  Advance booking permitted for up to five days in advance.
+                            <br> <br>
+                        <a href="/tennis" class="btn btn-block btn-dark" style="background-color: #8b817a">Read more...</a>
+                    </div>
+                </div>
+                <br>
+
+                <!-- 2nd Card Column -->
+                <div class="card" style="border: 2px solid #796241;">
+                    <img src="/img/cardBody_tableT.png" alt="" class="card-img-top img-fluid">
+                    <div class="card-body">
+                        <h4 class="card-title">Table Tennis</h4>
+                        
+                        <p class="card-text">What is better than a table tennis match with your colleagues to relax and clear your mind?  
+                        <br>
+                        Elegant drawers hide table tennis equipment and just by setting up a professional net, the table becomes a perfect playing field.
+                        Top in extra matt lacquered finish with printed table tennis layout. This Italian designer ping pong table has two under top hidden drawers complete of 4 paddles and 8 balls. 
+                        <br>
+                        </p>
+                            <br><br>
+                        <h5 class="card-subtitle text-muted">Booking</h5><br>
+                        Table Tennis can be booked for 60 minutes per session.  Advance booking permitted for up to five days in advance.
+                            <br>
+                        <br>
+                      <a href="/tabletennis" class="btn btn-block btn-dark" style="background-color: #8b817a">Read more...</a>
+                    </div>
+                </div>
+                <br>
+               
+                <!-- 3rd Card Column -->
+                <div class="card" style="border: 2px solid #796241;">
+                    <img src="/img/cardBody_squash.png" alt="" class="card-img-top img-fluid">
+                    <div class="card-body">
+                        <h4 class="card-title">Squash Court</h4>
+                        
+                        <p class="card-text">Welcome to The Club Squash Center! A 33,000-square-foot facility available to The Club members and guests that boasts 12 singles courts, two doubles courts, and two exhibition courts, all within one single venue. 
+                        <br>
+                        The facility is a remarkable space serving players of all skill levels. The Club Squash Center is widely considered one of the best squash facilities in the world and plays host to several junior and professional events.
+                            <br>
+                        </p>
+                            <br>
+                        <h5 class="card-subtitle text-muted">Booking</h5><br>
+                        Our squash court can be booked for 60 minutes per session. Advance booking permitted for up to five days in advance.
+                        <br> <br>
+                            <a href="/squash" class="btn btn-block btn-dark" style="background-color: #8b817a">Read more...</a>
+                    </div>
+                </div>
+                <br>
+               
+                <!-- 4th column -->
+                 <div class="card" style="border: 2px solid #796241;">
+                    <img src="/img/cardBody_golf.png" alt="" class="card-img-top img-fluid">
+                    <div class="card-body">
+                        <h4 class="card-title">Golf</h4>
+                        
+                        <p class="card-text">Our facilities include a 32 bay Driving Range, is home to three 18-hole golf courses and practice facilities.Extensive dining facilities offering both Western and Chinese menus.
+                            <br>
+                        Changing rooms with lockers available and a fully equipped Golf Shop with a wide range of equipment, apparel and accessories. Teaching Professionals and trained caddies are also available for hire.
+                            <br>
+                        <br>
+                           <br>
+                        </p>
+                            <br>
+                        <h5 class="card-subtitle text-muted">Booking</h5><br>
+                        Advance booking permitted for up to seven days in advance.
+                            <br> 
+                        <br>
+                            <br>
+                        <a href="/golf" class="btn btn-block btn-dark" style="background-color: #8b817a">Read more...</a>
+                    </div>
+                </div>
+                <br>
+               
+                <!-- 5th column -->
+                <div class="card" style="border: 2px solid #796241;">
+                    <img src="/img/cardBody_ruby.png" alt="" class="card-img-top img-fluid">
+                    <div class="card-body">
+                        <h4 class="card-title">Rugby Field</h4>
+                        
+                        <p class="card-text"> World Rugby and FIFA accredited 3rd Generation Artificial Turf, with Rugby cum Soccer line marking, size 93 x 62.5m, five hundred capacity uncovered spectator stand. 
+                        <br>
+                        It is the ideal venue for field sports traning or competitions as well as corporate events, meetings and conferences.
+                        <br>
+                            <br>
+                        <br>
+                            <br>
+                        </p>
+                            <br>
+                        <h5 class="card-subtitle text-muted">Booking</h5><br>
+                        Ruby Field can be booked for 90 minutes per session. Advance booking permitted for up to five days in advance.
+                        <br><br>
+                        <a href="/rugby" class="btn btn-block btn-dark" style="background-color: #8b817a">Read more...</a>
+                    </div>
+                </div>
+                <br>
+               
+                <!-- 6th column -->
+                <div class="card" style="border: 2px solid #796241;">
+                    <img src="/img/cardBody_cafe.png" alt="" class="card-img-top img-fluid">
+                    <div class="card-body">
+                        <h4 class="card-title">La Cave </h4>
+                        
+                        <p class="card-text">La Cave offers an extensive selection of wines covering every major wine region, from famous labels to lesser-known wineries. Attractive promotions and recommendations from our dedicated wine team are always available. Spirits and cigars are also offered.
+                        <br>
+                        With extensive whisky selection and cozy atmosphere, La Cave is a perfect spot to enjoy pre-dinner drinks, or just relax with friends, an ideal venue for business meetings and private gatherings.
+                            <br>
+                        <br>
+                        </p>
+                        
+                        <h5 class="card-subtitle text-muted">Booking</h5><br>
+                        Private rooms are available.Advance booking permitted for up to five days in advance.
+                        <br>
+                            <br>
+                        <a href="/facilities" class="btn btn-block btn-dark" style="background-color: #8b817a">Read more...</a>
+                    </div>                   
+                </div>
+                <br>
+</div>
+     {{!-- <!-- Image caps -->
+    <div class="card mb-3">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+            <img src="..." class="card-img-bottom" alt="...">
+        </div>
+    </div>
+<br> --}}
+<!-- scrolltop -->
+<div class="container mb-3 py-1 my-1  float-right">
+    <div id="scrolltop">
+        <div class="card-body text-right" >
+        <a href="#" class="btn btn-dark btn-sm-right" style="background-color: #8b817a"><img src="/img/backtotop.png" alt="reg" width="20" height="20"/></a>
+        </div>
+    </div>
+</div>
+<hr>  

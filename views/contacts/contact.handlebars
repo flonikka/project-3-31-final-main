@@ -1,0 +1,101 @@
+
+<div class="card border-light py-3">
+    <div class="card-body" style="background-color: #374764; border: 4px solid #796241; border-radius : 25px;">
+        <div class="row">
+                <div class="col-md-5 sm-auto">
+                    <div class="card card-body">
+                        <h3 class="text-center text-caplialize"> Enquiry</h3>
+                        <form action="/contacts/contact" method="post">
+                        
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" name="name" class="form-control" value="{{name}}"/>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" name="email" class="form-control" value="{{email}}"/>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="text" name="phone" class="form-control" value="{{phone}}"/>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <select class="form-control" id="subject" name="subject">
+                                <option value="Customer Services">Customer Services</option>
+                                <option value="Sports facility">Sports facility</option>
+                                <option value="Management">Management</option>
+                                <option value="Recruit">Recruit</option>
+                            </select>
+                        </div>
+                        {{!--  --}}
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea type="text" id="message"
+                            name="message" class="form-control" rows="3" value="{{message}}"></textarea>
+                        </div>
+                       
+                        <div class="form-group col mb-0 p-0">
+                            <button type="submit" class="btn btn-dark" style="background-color: #8b817a;">Submit</button>
+                        </div>
+                        
+                        </form>
+                    </div>
+                </div>
+              <div class="col-md-5 sm-auto">
+                <div class="card card-body" style="background-color: #374764;">
+                    <div class="googleaddress width:auto">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3689.626610236687!2d114.30903175030264!3d22.36772338521644!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3404053dea7c54bd%3A0xd046bb5ef48b150!2z6LO96aas5pyD5ruY6KW_5rSy5YWs55y-6auY54i-5aSr55CD5aC0!5e0!3m2!1szh-TW!2shk!4v1679640500500!5m2!1szh-TW!2shk" width="760" height="580" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+ 
+<!-- card columns -->
+ <div class="card-columns my-0 ml-0 mr-0">
+     <div class="card border-light" style="border 0px;">
+       <div class="card-body" style="height:270px;">   
+        <a href="#">      
+        <img src="/img/logo.png" alt="logo" width="250" height="250"/>
+        </a>
+       </div>
+     </div>
+     <div class="card border-light" style="border 0px;">
+          <div class="card-body" style="height:270px; width: 600px";>
+            <h4 class="card-title">Hours Of Operations</h4>
+                <ul>
+                    <li>
+                        <span class="days">Monday - Thursday</span>
+                        <span class="time">9:00AM - 18:00AM</span>
+                    </li>
+                    <br>
+                    <li>
+                        <span class="days">Friday - Saturday</span>
+                        <span class="time">9:00AM - 18:00AM</span>
+                    </li>
+                    <br>
+                </ul>
+            </div>
+     </div>  
+     <div class="card border-light" style="border 0px;">
+       <div class="card-body" style="height:270px; width: 600px" ;>
+          <h4 class="card-title">The Country Club</h4>
+                <p>No. 1 Water Clear Bay</p>
+                <p>Sai Kung, New Territories</p>
+                <p>Hong Kong</p>
+                <p>(852)7788-3000</p>
+                <p>Email Address: info@kcclube.com</p>
+         </div>       
+     </div>  
+    </div>   
+</div>
+
+{{!--  --}}
+
+
+    

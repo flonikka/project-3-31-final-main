@@ -1,0 +1,73 @@
+  {{#each errors}}
+  <div class="alert alert-danger">{{text}}</div>
+  {{else}}
+  {{/each}}
+
+<div class="container py-3 my-3">
+  <div class="card">
+    <div class="card-body text-center text-muted">
+      <h1>Reservation</h1> 
+    </div>
+  </div>  
+</div>
+
+<div class="container py-0 my-0">  
+    {{!-- layout adjust--}}
+    <div class="row row-cols-1 row-cols-md-1"> 
+      <div class="col mb-4">
+
+        <div class="card card-body">
+          <h3></h3>
+          <form action="/bookings/admin" method="post">
+            <div class="form-group">
+          
+              <select class="form-control" id="facility" name="facility">
+                  {{!-- <option selected>Select Sport</option> --}}
+                  <option value="GF01">Golf</option>
+                  <option value="RB01">Rugby</option>
+                  <option value="SQ01">Squash Court 1</option>
+                  <option value="SQ02">Squash Court 2</option>
+                  <option value="SQ03">Squash Court 3</option>
+                  <option value="SQ04">Squash Court 4</option>
+                  <option value="TS01">Tennis Court 1</option>
+                  <option value="TS02">Tennis Court 2</option>
+                  <option value="TS03">Tennis Court 3</option>
+                  <option value="TS04">Tennis Court 4</option>
+                  <option value="TS05">Tennis Court 5</option>
+                  <option value="TS06">Tennis Court 6</option>
+                  <option value="TS07">Tennis Court 7</option>
+                  <option value="TS01">Table Tennis Court 1</option>
+                  <option value="TS02">Table Tennis Court 2</option>
+                  <option value="TS03">Table Tennis Court 3</option>
+                  <option value="TS04">Table Tennis Court 4</option>
+              </select>
+                            
+            </div>
+            <div class="form-group">
+              <label for="maintStart">Maintenance Start</label>
+              <input
+                  type="date" 
+                  id="maintStart" 
+                  class="form-control" 
+                  name="maintStart" 
+                  value="{{maintStart}}"
+              ></input>
+            </div>
+          
+            <div class="form-group">
+              <label for="maintEnd">Maintenance end</label>
+              <input
+                  type="date" 
+                  id="maintEnd" 
+                  class="form-control" 
+                  name="maintEnd" 
+                  value="{{maintEnd}}"
+              ></input>
+            </div>
+
+            <button type="submit" class="btn btn-light" name="action">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+</div>

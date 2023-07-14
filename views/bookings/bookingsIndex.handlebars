@@ -1,0 +1,110 @@
+<style>
+.btn-text-left{
+	text-align: left;	
+}
+.btn-text-right{
+	text-align: right;
+}
+</style>
+
+<div class="container py-3 my-1">
+  <div class="card" style="background-color :#8b817a ; border : 2px solid #796241;border-radius : 20px;">
+    <div class="card-body text-center text-light" >
+      <h1>Review your bookings</h1> 
+    </div>
+  </div>  
+</div>
+
+{{!-- to profile or invoice --}}
+
+{{!-- <div class="container py-1 my-1">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="btn-text-right">
+          <a href="/receipt" type="button" class="btn btn-lg btn-light">Confirm Booking</a>
+      </div>
+    </div>
+  </div>
+</div>   --}}
+
+
+{{#each bookings}}
+
+<div class="container py-0 my-0">  
+    <div class="row row-cols-0 row-cols-md-2">
+      <div class="col mb-4">
+
+
+        <div class="card" style="background-color: rgb(249, 240, 229); border: 2px solid #796241; border-radius : 7px;">
+          <img src="{{img_path}}" alt="" class="card-img-top img-fluid">
+          <div class="card-img-overlay">   
+               <p><h1 class="card-title text-white">{{facility}}</h1>
+              </p>
+          </div> 
+        </div>
+
+        {{!-- <div class="card" style="background-color: rgb(249, 240, 229); border: 2px solid #796241; border-radius : 7px;">
+          auto-images
+          <img src="{{img_path}}" alt="" class="card-img-top img-fluid">
+          auto-images
+          <div class="card-body">
+            <h2 class="card-title text-center" style="color: #8b817a;">{{facility}}</h2>
+            
+          
+              <p class="card-text">Tennis has always been one of the most popular sporting activities at the 
+              <br></p>
+              <br>
+              <h5 class="card-subtitle text-muted">Booking</h5>
+              <br>Tennis courts may be booked for 60 minutes per session.  Advance booking permitted for up to five days in advance.
+          </div>
+        </div> --}}
+
+      </div>
+
+        <div class="col mb-4">
+          <div class="card" style="border: 2px solid #796241; border-radius : 7px;">
+            <div class="card-body">      
+              <div class="text-muted">
+                <h1>{{facility}}</h1>
+                {{!-- <h3>Venue     :</h3> --}}
+                <p>Confirmation number : {{_id}}</p>
+                <hr>
+                
+              </div>
+              <h5>Time  : {{session_desc}}</h5>
+              <h5>Date : {{bookingDate}}</h5>
+              <br>
+              <div class="row row-cols-1 row-cols-md-2">
+                <div class="col mb-10">
+                  <a href="/bookings/edit/{{_id}}" class="btn btn-dark btn-block" style="background-color: #8b817a;">Edit</a>
+                </div> 
+                <div class="col mb-12">
+                  <form action="/bookings/{{_id}}?_method=DELETE" method="post">
+                        <input type="hidden" name="_method" value="DELETE"/>
+                        <input type="submit" class="btn btn-light btn-block" value="Cancel" />
+                  </form>
+                </div>
+              </div>
+
+            </div>  
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+{{!-- if NO booking --}}
+{{else}}
+ 
+<div class="container py-3 my-3">
+  <div class="card">
+    <p><h4 class="text-center text-muted">Start your sports jounery</h4></p>
+
+      <a href="/bookings/add" class="btn btn-outline-light" style="background-color: #8b817a">Book Now</a>
+
+  </div>
+</div>
+        
+{{/each}}
+

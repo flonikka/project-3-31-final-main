@@ -1,0 +1,158 @@
+<style>
+.btn-text-left{
+	text-align: left;	
+}
+.btn-text-right{
+	text-align: right;
+}
+#avatarUpload {
+  background-color:#e0d2ba; border : 1px solid #796241;""
+  margin-left: auto;
+  margin-right: auto;
+  width:280px;
+  display: absolute;
+  }
+
+input[type=file]::file-selector-button {
+  margin-right: 30px;
+  border: none;
+  background: grey;
+  padding: 0px 10px;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  transition: background .2s ease-in-out;
+}
+
+input[type=file]::file-selector-button:hover {
+  background: #796241;
+}
+</style>
+
+<div class="container py-2 my-2" style="background-color: #374764; border: 2px solid #796241; border-radius : 15px;">
+
+<div class="container py-4 my-4" >  
+    <div class="row row-cols-1 row-cols-md-2">
+      <div class="col mb-0">
+        <div class="card" style="background-color: #e0d2ba; border: 2px solid #796241; border-radius : 15px;">
+          <div class="card-body">
+          
+          {{#if avatar.data}}
+            <img class="mb-4 rounded-circle mx-auto d-block" src="data:image/{{avatar.contentType}}; base64, {{avatar.data}}" width="200" height="200">
+              <div class="col mb-12">
+                  
+              </div>
+ 
+          {{else}}
+            <p><h3 class="text-center text-muted">Create avatar</h3></p>
+            <div class="text-center mb-4">
+            <img class="mb-4 rounded-circle mx-auto d-block" src="" alt="" width="150" height="150">
+            <form action="/users/profile" enctype="multipart/form-data"method="POST">
+            <label for="avatarUpload" class="form-text text-center text-muted"><small>upload your avatar now</small></label>  
+          {{/if}}
+            </p>
+          {{!-- upload box --}}
+            
+            <div class="text-center mb-3">
+              <div class="card-body"> 
+                <div class="row row-cols-2 row-cols-md-1">
+                  <div class="">
+                    <div class="col mb-12">
+                      <button type="submit" class="btn btn-dark" style="background-color :#8b817a;" >Upload</button> 
+                    </div>
+
+                    <div class="col mb-12">
+                      <form action="/users/profile?_method=DELETE" method="POST">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <input type="submit" class="btn btn-light text-muted" value="Delete">
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="">
+                  <div class="col mb-10">         
+                      <input 
+                      type="file" accept="image/*" 
+                      name="avatarUpload"
+                      id="avatarUpload"
+                      class="form-control-sm"/>
+               
+                  </div>
+                
+             
+                  <div class="col mb-12">
+                    <p><h3 class="text-center" style="color: #8b817a;">User name : {{name}}</h3></p>
+                    <p><h3 class="text-center" style="color: #8b817a;">Email     : {{email}}</h3></p>
+                  </div>
+
+                                     
+              </div>
+
+              <div class="card-body"> 
+                 <div class="row row-cols-1 row-cols-md-1">
+                    <div class="col mb-10">
+                      <a href="/bookings/add" type="submit" class="btn btn-dark" style="background-color :#8b817a;">Add Bookings</a> 
+                    </div>
+
+                    <div class="col mb-0">
+                      <a href="/bookings" type="submit" class="btn btn-light" style="background-color :white;"> View Bookings</a> 
+                    </div>                   
+                </div>
+              </div>
+
+            </div>    
+        </div>
+      </div>
+    </div>
+              {{!-- <div class="container py-4 my-4" >   --}}
+        <div class="card" style="background-color: #e0d2ba; border: 2px solid #796241; border-radius : 15px;">
+                <div class="row row-cols-1 row-cols-md-12">
+                   <div class="card-body">
+                     <h3 class="card-title text-center" style="color: #8b817a;">Joined Community</h3>
+                     <hr>
+                     {{!-- <h6 class="card-subtitle text-muted">card subtitle</h6> --}}
+                    <h6 class="card-text text-center" style="color: #8b817a;">COMING SOON...
+                    </h6>
+                   </div>
+                </div>
+              </div>
+              </div>
+              </div>
+
+
+
+{{!-- booking records --}}
+      
+        {{!-- <div class="col mb-4">
+          <div class="card">
+            <div class="card-body">      
+              <div class="text-muted">
+                <h3>Venue     :</h3>
+                <p>BookingID : {{_id}} </p>
+                <h1>{{facility}}</h1>
+              </div>
+              <h5>Time  : {{session}}</h5>
+              <h5>Date : {{bookingDate}}</h5>
+              <br>
+              <div class="row row-cols-1 row-cols-md-2">
+                <div class="col mb-10">
+                  <a href="/bookings/edit/{{_id}}" class="btn btn-light btn-block">Edit</a>
+                </div> 
+                <div class="col mb-14">
+                  <form action="/bookings/{{_id}}?_method=DELETE" method="post">
+                        <input type="hidden" name="_method" value="DELETE"/>
+                        <input type="submit" class="btn btn-light btn-block" value="Cancel" />
+                  </form>
+                </div>
+              </div>
+            </div>  
+          </div>
+        </div>
+      
+
+      </div>
+    </div>
+</div> --}}
+
