@@ -9,7 +9,7 @@ import {
     uploadAvatar, 
     postProfile, 
     deleteProfile 
-    } from "../controllers/usersConroller.js";
+    } from "../controllers/usersController.js";
 // import passportConfig from "../config/passportConfig.js";
 
 import ensureAuthenticated from "../helpers/auth.js";

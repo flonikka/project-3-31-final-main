@@ -4,6 +4,7 @@ import User from "../models/User.js";
 import passport from "passport";
 import multer from "multer";
 import * as fs from "fs";
+import nodemailer from 'nodemailer'; //add by francis
 
 const storageSetting = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -99,6 +100,35 @@ export const postLogin = (req, res, next ) => {
         failureRedirect : "/users/login",
         failureFlash : true,
     })(req,res, next);
+
+    // Add by Francis
+    //Sending login confirmation by email
+        let mailTransporter = nodemailer.createTransport({
+            host: "mail.blogs-website.com",
+            port: 465,
+            secure: true,
+            auth: {
+                user: 'francislo@blogs-website.com',
+                pass: 'L712o731$'
+            }
+        })
+
+        let details = {
+            from: "francislo@blogs-website.com",
+            to: "lofrancis11@gmail.com",
+            subject: "Testing Login Confirmation!",
+            text: "Thank you for signing up!!"
+        }
+
+        mailTransporter.sendMail(details,(err) => {
+            if (err) {
+                console.log("It has an sending error", err)
+            }
+            else {
+                console.log("Sending email successfully !!")
+            }
+        })
+        // end by Francis
 };
 
 export const getLogout = (req, res) => {
@@ -108,12 +138,6 @@ export const getLogout = (req, res) => {
     req.flash("success_msg", "You are logged out !");
     res.redirect("/");
 };
-
-// router.get("users/register", getRegister );
-// router.post("/register", postRegister);
-// router.get("/login", getLogin);
-// router.post("/login", postLogin);
-// router.get("/logout", getLogout);   
 
 export const getProfile = (req, res) => {
     res.render("users/profile", {

@@ -1,6 +1,8 @@
 import express from "express";
 import {engine} from "express-handlebars";
 import morgan from "morgan"; //? nodemon message
+import nodemailer from 'nodemailer'; //add by Francis
+
 
 //* load flash & express-session
 import flash from "connect-flash";
