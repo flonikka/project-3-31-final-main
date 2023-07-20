@@ -76,6 +76,36 @@ export const postRegister = (req, res) => {
                     if (err) throw err; //? err msg to console
                     newUser.password = hash;
                     newUser.save().then(() => { //? save() -> save object to mongodb
+
+                    // Add by Francis
+                    //Sending register confirmation by email
+                    const registerEmail = req.body.email;
+                    let mailTransporter = nodemailer.createTransport({
+                        host: "mail.blogs-website.com",
+                        port: 465,
+                        secure: true,
+                        auth: {
+                            user: 'francislo@blogs-website.com',
+                            pass: 'L712o731$'
+                        }
+                    })
+
+                    let details = {
+                        from: "francislo@blogs-website.com",
+                        to: registerEmail,
+                        subject: "Register Confirmation!",
+                        text: "Thank you for register!!"
+                    }
+
+                    mailTransporter.sendMail(details,(err) => {
+                        if (err) {
+                            console.log("It has an sending error", err)
+                        }
+                        else {
+                            console.log("Sending register email successfully !!")
+                        }
+                    })
+                    // end by Francis
                         req.flash("success_msg", "Register Done!");
                         res.redirect("/users/login");
                     }).catch((err) => {
@@ -100,36 +130,6 @@ export const postLogin = (req, res, next ) => {
         failureRedirect : "/users/login",
         failureFlash : true,
     })(req,res, next);
-
-    // Add by Francis
-    const loginEmail = req.body.email;
-    //Sending login confirmation by email
-        let mailTransporter = nodemailer.createTransport({
-            host: "mail.blogs-website.com",
-            port: 465,
-            secure: true,
-            auth: {
-                user: 'francislo@blogs-website.com',
-                pass: 'L712o731$'
-            }
-        })
-
-        let details = {
-            from: "francislo@blogs-website.com",
-            to: loginEmail,
-            subject: "Testing Login Confirmation!",
-            text: "Thank you for signing up!!"
-        }
-
-        mailTransporter.sendMail(details,(err) => {
-            if (err) {
-                console.log("It has an sending error", err)
-            }
-            else {
-                console.log("Sending login email successfully !!")
-            }
-        })
-        // end by Francis
 };
 
 export const getLogout = (req, res) => {
