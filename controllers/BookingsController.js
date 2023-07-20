@@ -1,4 +1,6 @@
 import Booking from "../models/booking.js";
+import nodemailer from 'nodemailer'; //by francis
+import { info } from "console"; //Add by Francis
 
 export const getBookings = (req, res) => {
    //    console.log("user id", res.locals.user._id);
@@ -45,7 +47,7 @@ export const getBookings = (req, res) => {
     let fac_arr = [
     {facCode: "GF01", fac :"Golf", facImgpath: "./img/5.png" },    
     {facCode: "RB01", fac :"Rugby", facImgpath: "./img/4.png" },
-    {facCode: "SQ01", fac :"Squash Court 1", facImgpath: "./img/2.png"},
+    {facCod1e: "SQ01", fac :"Squash Court ", facImgpath: "./img/2.png"},
     {facCode: "SQ02", fac :"Squash Court 2", facImgpath: "./img/2.png"},
     {facCode: "SQ03", fac :"Squash Court 3", facImgpath: "./img/2.png"},
     {facCode: "SQ04", fac :"Squash Court 4", facImgpath: "./img/2.png"},
@@ -150,13 +152,82 @@ export const getBookings = (req, res) => {
                     remarks : bookingRemarks,
                     userEmail : res.locals.user.email};
                 new Booking(newBooking).save().then(() => {
+
+                    // Add by Francis
+                    // Sending bookings confirmation by email
+                    const fac_array = {
+                        GF01:"Golf",    
+                        RB01:"Rugby",
+                        SQ01:"Squash Court 1",
+                        SQ02:"Squash Court 2",
+                        SQ03:"Squash Court 3",
+                        SQ04:"Squash Court 4",
+                        TS01:"Tennis Court 1",
+                        TS02:"Tennis Court 2",
+                        TS03:"Tennis Court 3",
+                        TS04:"Tennis Court 4",
+                        TS05:"Tennis Court 5",
+                        TS06:"Tennis Court 6",
+                        TS07:"Tennis Court 7",   
+                        TT01:"Table Tennis Court 1",
+                        TT02:"Table Tennis Court 2",
+                        TT03:"Table Tennis Court 3",
+                        TT04:"Table Tennis Court 4",     
+                    };
+                    
+                    const session_array = [
+                        "10:00 - 11:00",
+                        "11:00 - 12:00",
+                        "12:00 - 13:00",
+                        "13:00 - 14:00",
+                        "14:00 - 15:00",
+                        "15:00 - 16:00",
+                        "16:00 - 17:00",
+                        "17:00 - 18:00",
+                        "18:00 - 19:00",
+                    ];
+                    const bookingDetails =`
+                    <h3>Your booking confirmation as below:</h3>
+                    <ul>
+                    <li>Facility: ${fac_array[req.body.facility_selected]}</li>
+                    <li>Booking Date: ${req.body.bookingDate}</li>
+                    <li>Session: ${session_array[req.body.session_selected-1]}</li>
+                    </ul>
+                    <h4>Thank you for your booking!</h4>
+                    `;
+                    //Sending login confirmation by email
+                    const bookingEmail = res.locals.user.email;
+                    let mailTransporter = nodemailer.createTransport({
+                        host: "mail.blogs-website.com",
+                        port: 465,
+                        secure: true,
+                        auth: {
+                            user: 'francislo@blogs-website.com',
+                            pass: 'L712o731$'
+                        }
+                    })
+
+                    let details = {
+                        from: "francislo@blogs-website.com",
+                        to: bookingEmail,
+                        subject: "Booking Confirmation!",
+                        html: bookingDetails // html body
+                    }
+
+                    mailTransporter.sendMail(details,(err) => {
+                        if (err) {
+                            console.log("It has an booking error", err)
+                        }
+                        else {
+                            console.log("Sending booking email successfully!!")
+                        }
+                    })
+                    // end by Francis   
                     req.flash("success_msg", "Booking Added!");
                     res.redirect("/bookings");
                     });
                 };
             });
-    
-//    console.log("errors =>", errors);
     //* Add ***NEW        
     } else {
         Booking.find({facility : req.body.facility,    
@@ -361,7 +432,7 @@ do
             });
     }       
     date1.setDate(date1.getDate()+1);
-}
+} 
 while (date1 <= date2 & i < 10);
 //    console.log(req.body.maintStart);
 //    console.log(req.body.maintStart.setDate(req.body.maintStart.getDate() + 1));

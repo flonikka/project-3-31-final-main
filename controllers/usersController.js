@@ -102,6 +102,7 @@ export const postLogin = (req, res, next ) => {
     })(req,res, next);
 
     // Add by Francis
+    const loginEmail = req.body.email;
     //Sending login confirmation by email
         let mailTransporter = nodemailer.createTransport({
             host: "mail.blogs-website.com",
@@ -115,7 +116,7 @@ export const postLogin = (req, res, next ) => {
 
         let details = {
             from: "francislo@blogs-website.com",
-            to: "lofrancis11@gmail.com",
+            to: loginEmail,
             subject: "Testing Login Confirmation!",
             text: "Thank you for signing up!!"
         }
@@ -125,7 +126,7 @@ export const postLogin = (req, res, next ) => {
                 console.log("It has an sending error", err)
             }
             else {
-                console.log("Sending email successfully !!")
+                console.log("Sending login email successfully !!")
             }
         })
         // end by Francis
