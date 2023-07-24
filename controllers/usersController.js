@@ -86,7 +86,7 @@ export const postRegister = (req, res) => {
                         secure: true,
                         auth: {
                             user: 'francislo@blogs-website.com',
-                            pass: 'L712o731$'
+                            pass: '********'
                         }
                     })
 

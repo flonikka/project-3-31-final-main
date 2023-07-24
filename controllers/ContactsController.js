@@ -63,7 +63,7 @@ export const postContact = function(req, res){
                 secure: true,
                 auth: {
                     user: 'francislo@blogs-website.com',
-                    pass: 'L712o731$'
+                    pass: '******'
                 },
                 // tls:{
                 //     rejectUnauthorized: false

@@ -98,11 +98,6 @@ export const getBookings = (req, res) => {
 //        console.log("Please add a date");
         errors.push({text: "Please add a date"});
     }
-    //* disable
-//     if (!req.body.session) {
-//         console.log("Please add a session");
-//         errors.push({text: "Please add a session"});
-//     }
 
     let today = new Date();
     let inputBookingDate = new Date (req.body.bookingDate);
@@ -203,7 +198,7 @@ export const getBookings = (req, res) => {
                         secure: true,
                         auth: {
                             user: 'francislo@blogs-website.com',
-                            pass: 'L712o731$'
+                            pass: '******'
                         }
                     })
 
@@ -440,36 +435,3 @@ while (date1 <= date2 & i < 10);
 req.flash("success_msg", "Maintenance Bookings Added!");
 res.redirect("/bookings/admin");
 }
-//*
-
-
-//* putEditBookgins function original
-// Booking.findOne({
-//     _id: req.params.id,
-// }).then(booking => {
-//     let edit_error_msg = "";
-//     if (!req.body.facility) {
-//         edit_error_msg += "please add a facility." ;
-//     }
-//     if (!req.body.bookingDate) {
-//         edit_error_msg += "please add a date.";
-//     }
-//     if (!req.body.session) {
-//         edit_error_msg += "please add a session.";
-//     }
-
-//     if (edit_error_msg) {
-//         req.flash("error_msg", edit_error_msg);
-//         res.redirect("/bookings/edit/"+booking._id);
-//     } else
-//     {
-
-//     booking.facility = req.body.facility;
-//     booking.bookingDate = req.body.bookingDate;
-//     booking.session = req.body.session;
-//     booking.save().then(()=> {
-//         req.flash("success_msg", "Booking updated !");
-//         res.redirect('/bookings');
-//     });
-//     }
-// });
